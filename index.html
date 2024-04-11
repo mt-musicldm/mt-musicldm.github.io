@@ -2,54 +2,72 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Arrangement Generation Materials</title>
+    <title>Arrangement Generation Track 1 Details</title>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 2px solid #000;
+        }
+        .column {
+            width: 45%;
+        }
+        .audio-player, .image-display {
+            margin-bottom: 10px;
+        }
+        img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+        }
+    </style>
 </head>
 <body>
-    <h1>Arrangement Generation Materials</h1>
-    <h2>Folder B</h2>
-    <ul>
-        <li>Track 1
-            <ul>
-                <li><audio controls>
+    <h1>Arrangement Generation Materials - Track 1</h1>
+    <div class="container">
+        <div class="column">
+            <h2>Generated</h2>
+            <div class="audio-player">
+                <audio controls>
                     <source src="Arrangement_generation/B/Track_1/generated_Mix.wav" type="audio/wav">
                     Your browser does not support the audio element.
-                </audio> generated_Mix.wav</li>
-                <li><audio controls>
+                </audio>
+                <p>Generated Mix</p>
+            </div>
+            <div class="audio-player">
+                <audio controls>
                     <source src="Arrangement_generation/B/Track_1/generated_stem.wav" type="audio/wav">
                     Your browser does not support the audio element.
-                </audio> generated_stem.wav</li>
-                <li><audio controls>
+                </audio>
+                <p>Generated Stem</p>
+            </div>
+            <div class="image-display">
+                <img src="Arrangement_generation/B/Track_1/some_image.png" alt="Mel_specs val_54_generated">
+            </div>
+        </div>
+        <div class="column">
+            <h2>Target</h2>
+            <div class="audio-player">
+                <audio controls>
+                    <source src="Arrangement_generation/B/Track_1/target_Mix.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                </audio>
+                <p>Target Mix</p>
+            </div>
+            <div class="audio-player">
+                <audio controls>
                     <source src="Arrangement_generation/B/Track_1/target_stem.wav" type="audio/wav">
                     Your browser does not support the audio element.
-                </audio> target_stem.wav</li>
-                <li><img src="Arrangement_generation/B/Track_1/some_image.png" alt="Mel_specs val_54_generated" style="width:100%;max-width:300px;"></li>
-                <li><img src="Arrangement_generation/B/Track_1/another_image.png" alt="Mel_specs val_54_target" style="width:100%;max-width:300px;"></li>
-            </ul>
-        </li>
-        <!-- Repeat for Track 2 to Track 5 -->
-    </ul>
-
-    <h2>Folder G</h2>
-    <ul>
-        <li>Track 1
-            <ul>
-                <li><audio controls>
-                    <source src="Arrangement_generation/G/Track_1/generated_Mix.wav" type="audio/wav">
-                    Your browser does not support the audio element.
-                </audio> generated_Mix.wav</li>
-                <li><audio controls>
-                    <source src="Arrangement_generation/G/Track_1/generated_stem.wav" type="audio/wav">
-                    Your browser does not support the audio element.
-                </audio> generated_stem.wav</li>
-                <li><audio controls>
-                    <source src="Arrangement_generation/G/Track_1/target_stem.wav" type="audio/wav">
-                    Your browser does not support the audio element.
-                </audio> target_stem.wav</li>
-                <li><img src="Arrangement_generation/G/Track_1/some_image.png" alt="Mel_specs val_54_generated" style="width:100%;max-width:300px;"></li>
-                <li><img src="Arrangement_generation/G/Track_1/another_image.png" alt="Mel_specs val_54_target" style="width:100%;max-width:300px;"></li>
-            </ul>
-        </li>
-        <!-- Repeat for Track 2 to Track 5 -->
-    </ul>
+                </audio>
+                <p>Target Stem</p>
+            </div>
+            <div class="image-display">
+                <img src="Arrangement_generation/B/Track_1/another_image.png" alt="Mel_specs val_54_target">
+            </div>
+        </div>
+    </div>
 </body>
 </html>
+
