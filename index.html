@@ -4,32 +4,38 @@
     <meta charset="UTF-8">
     <title>Arrangement Generation Track Details</title>
     <style>
+        body {
+            font-family: Arial, sans-serif; /* Improves readability */
+        }
         .container {
             display: flex;
             flex-wrap: wrap; /* Allows multiple boxes to wrap */
-            justify-content: space-around;
+            justify-content: center;
             margin-bottom: 20px;
-            padding: 15px;
-            border: 2px solid #000;
-            width: 90%; /* Adjusted overall container width */
-            margin: auto; /* Centering the container */
-        }
-        .column {
-            width: 100%; /* Makes each column (track) take full width within the container */
-            margin-bottom: 20px; /* Space between each track */
         }
         .track-container {
             border: 2px solid #ccc; /* Border around each track */
             padding: 10px;
-            margin-bottom: 20px; /* Space between tracks */
+            margin: 10px;
+            width: 48%; /* Adjusted to make containers smaller */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Adds a subtle shadow for better visuals */
+            display: flex; /* Makes the content of each track container flex */
         }
-        .audio-player, .image-display {
+        .column {
+            flex: 1; /* Each column takes up equal space */
+            margin: 5px;
+        }
+        .audio-player {
             margin-bottom: 10px;
+        }
+        audio {
+            width: 100%; /* Makes the audio player take the full width of its container */
+            height: 32px; /* Reduces the height of the player */
         }
         img {
             width: 100%; /* Images take full width of their container to resize with the column */
-            max-width: 300px; /* Maximum width restriction */
-            height: auto;
+            max-height: 150px; /* Limits the height of images */
+            object-fit: cover; /* Ensures the image covers the area without distortion */
         }
         h2 {
             text-align: center; /* Center-align the track titles */
@@ -42,8 +48,8 @@
     <div class="container">
         <!-- Track 1 Container -->
         <div class="track-container">
-            <h2>Track 1</h2>
             <div class="column">
+                <h2>Generated</h2>
                 <div class="audio-player">
                     <audio controls>
                         <source src="Arrangement_generation/B/Track_1/generated_Mix.wav" type="audio/wav">
@@ -63,6 +69,7 @@
                 </div>
             </div>
             <div class="column">
+                <h2>Target</h2>
                 <div class="audio-player">
                     <audio controls>
                         <source src="Arrangement_generation/B/Track_1/target_Mix.wav" type="audio/wav">
