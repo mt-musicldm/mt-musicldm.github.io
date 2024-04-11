@@ -1,29 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Arrangement Generation Track 1 Details</title>
-    <style>
-        .container {
-            display: flex;
-            justify-content: space-around;
-            margin-bottom: 20px;
-            padding: 15px;
-            border: 2px solid #000;
-        }
-        .column {
-            width: 45%;
-        }
-        .audio-player, .image-display {
-            margin-bottom: 10px;
-        }
-        img {
-            width: 50%;
-            max-width: 300px;
-            height: auto;
-        }
-    </style>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <title>Arrangement Generation Track Details</title>
+        <style>
+            .container {
+                display: flex;
+                flex-wrap: wrap; /* Allows multiple boxes to wrap */
+                justify-content: space-around;
+                margin-bottom: 20px;
+                padding: 15px;
+                border: 2px solid #000;
+                width: 20%; /* Adjusted overall container width */
+                margin: auto; /* Centering the container */
+            }
+            .column {
+                width: 100%; /* Makes each column (track) take full width within the container */
+                margin-bottom: 20px; /* Space between each track */
+            }
+            .track-container {
+                border: 2px solid #ccc; /* Border around each track */
+                padding: 10px;
+                margin-bottom: 20px; /* Space between tracks */
+            }
+            .audio-player, .image-display {
+                margin-bottom: 10px;
+            }
+            img {
+                width: 100%; /* Images take full width of their container to resize with the column */
+                max-width: 300px; /* Maximum width restriction */
+                height: auto;
+            }
+            h2 {
+                text-align: center; /* Center-align the track titles */
+                margin-top: 0;
+            }
+        </style>
+    </head>
 <body>
     <h1>Arrangement Generation Materials - Track 1</h1>
     <div class="container">
