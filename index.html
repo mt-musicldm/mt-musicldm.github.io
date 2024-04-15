@@ -8,6 +8,88 @@
     <link rel="stylesheet" href="config/ionicons.css" />
     <link rel="stylesheet" href="config/theme.css" />
     <link rel="stylesheet" href="config/template3.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js" integrity="sha384-3Jy9GmE+f7X0zTHPeZU02qcfXnuQ8M5i5ma1BM3DFCqvfW5JpMfxzL1SEgBpox+O" crossorigin="anonymous"></script>
+    <script>
+        window.MathJax = {
+          tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
+            processEscapes: true,
+            tags: 'ams' // This enables numbering and advanced formatting
+          },
+          svg: {
+            fontCache: 'global'
+          }
+        };
+        </script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js"></script>
+        
+
+    <style>
+        .horizontal-layout {
+            display: flex;         /* Enables flexbox */
+            flex-direction: row;   /* Aligns children horizontally */
+            justify-content: space-between; /* Distributes space between and around content items */
+            align-items: start;    /* Aligns items at the start of the container */
+            width: 80%;           /* Full width of the parent element */
+            margin: 0 200px; /* Adds space outside the container */
+        }
+
+        #video1, #video2 {
+            flex: 1;               /* Each section takes an equal amount of space */
+            min-width: 0;          /* Allows the flex items to shrink below their set width if necessary */
+            overflow: auto;        /* Adds scroll to each section if content overflows */
+        }
+
+        table {
+            width: 45%; /* Similar to \resizebox{0.45\textwidth}{!}{} in LaTeX */
+            border-collapse: collapse;
+            margin: auto; /* Center the table horizontally */
+        }
+        caption {
+            text-align: center;
+            margin-bottom: 8px; /* Space between caption and table */
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+        thead th {
+            border-top: 3px solid black;
+            border-bottom: 2px solid black;
+        }
+        tbody tr:first-child td {
+            border-top: 2px solid black;
+        }
+        tbody tr:last-child td {
+            border-bottom: 3px solid black;
+        }
+
+
+
+        #references {
+            margin-top: 20px;
+            border-top: 1px solid #ccc;
+            padding-top: 10px;
+        }
+
+        #references h3 {
+            font-size: 1.2em;
+        }
+
+        #references ol {
+            list-style-type: decimal;
+            margin-left: 20px;
+        }
+
+        sup a, #references a {
+            text-decoration: none;
+            color: blue;
+        }
+
+
+    </style>
   </head>
 <body data-spy="scroll" data-target="#navbar1" data-offset="60">
 <div class="container-fluid" style="min-width:80%;">
@@ -31,6 +113,12 @@
                         </p>
                         <p class="lead mb-3">
                             On this page, we present the generation demos of MT-MusicLD in four different scenarios: Total generation, audio-conditioned generation, text-conditioned generation, and arrangement generation.
+                           
+                            
+
+                        </p>
+                        <p class="lead mb-3">
+                           Additionally, in the end if this page as P.S., we present a results for the source separation algorithm that did not perform as well as our baseline. For a detailed review and further documentation, a textual file in LaTeX format is available for download.
                             
                             
 
@@ -96,6 +184,7 @@
                             <source src="${folder}/Track_${i}/Mix.wav" type="audio/mpeg">
                             Your browser does not support the audio.
                         </audio>
+                        <div style="width:100%; height:1px; background-color:#000; margin-top:5px;"></div>
                         <div class="col border-right">
                             <span class="my-auto">Bass stem</span>
                         </div>
@@ -132,6 +221,7 @@
         </div>
     </section>
 
+    <div style="width:100%; height:2px; background-color:#000; margin-top:100px;"></div>
     <h2 style="font-weight: bold;">Audio Conditioning Generation</h2>
 
     <section id="video" class="pb-1">
@@ -173,6 +263,56 @@
                         <div class="col border-right">
                             <span class="my-auto">Track ${i}</span>
                         </div>
+
+
+                        <div class="col border-right">
+                            <span class="my-auto">Conditioning Mix</span>
+                        </div>
+                        <audio controls style="width:100%;">
+                            <source src="${folder}/Track_${i}/target_Mix.wav" type="audio/mpeg">
+                            Your browser does not support the audio.
+                        </audio>
+                        <!-- 
+                        <div class="col border-right">
+                            <span class="my-auto">Conditioning_Bass stem</span>
+                        </div>
+                        <audio controls style="width:100%;">
+                            <source src="${folder}/Track_${i}/target_Bass.wav" type="audio/mpeg">
+                            Your browser does not support the audio.
+                        </audio>
+
+                        <div class="col border-right">
+                            <span class="my-auto">Conditioning_Drums stem</span>
+                        </div>
+                        <audio controls style="width:100%;">
+                            <source src="${folder}/Track_${i}/target_Drums.wav" type="audio/mpeg">
+                            Your browser does not support the audio.
+                        </audio>
+                        <div class="col border-right">
+                            <span class="my-auto">Conditioning_Guitar stem</span>
+                        </div>
+                        <audio controls style="width:100%;">
+                            <source src="${folder}/Track_${i}/target_Guitar.wav" type="audio/mpeg">
+                            Your browser does not support the audio.
+                        </audio>        
+                        <div class="col border-right">
+                            <span class="my-auto">Conditioning_Piano stem</span>
+                        </div>
+                        <audio controls style="width:100%;">
+                            <source src="${folder}/Track_${i}/target_Piano.wav" type="audio/mpeg">
+                            Your browser does not support the audio.
+                        </audio>
+                        -->
+                        <div class="col my-auto border-right">
+                            <img style="margin-left:-1.5rem;" src="${folder}/Track_${i}/target.png" width="100%">
+                        </div>   
+
+
+
+                        <div style="width:100%; height:1px; background-color:#000; margin-top:10px;"></div>
+
+
+
                         <div class="col border-right">
                             <span class="my-auto">Generated Mix</span>
                         </div>
@@ -213,48 +353,6 @@
                             <img style="margin-left:-1.5rem;" src="${folder}/Track_${i}/generated.png" width="100%">
                         </div>                     
 
-
-                        <div class="col border-right">
-                            <span class="my-auto">target Mix</span>
-                        </div>
-                        <audio controls style="width:100%;">
-                            <source src="${folder}/Track_${i}/target_Mix.wav" type="audio/mpeg">
-                            Your browser does not support the audio.
-                        </audio>
-                        <div class="col border-right">
-                            <span class="my-auto">target_Bass stem</span>
-                        </div>
-                        <audio controls style="width:100%;">
-                            <source src="${folder}/Track_${i}/target_Bass.wav" type="audio/mpeg">
-                            Your browser does not support the audio.
-                        </audio>
-
-                        <div class="col border-right">
-                            <span class="my-auto">target_Drums stem</span>
-                        </div>
-                        <audio controls style="width:100%;">
-                            <source src="${folder}/Track_${i}/target_Drums.wav" type="audio/mpeg">
-                            Your browser does not support the audio.
-                        </audio>
-                        <div class="col border-right">
-                            <span class="my-auto">target_Guitar stem</span>
-                        </div>
-                        <audio controls style="width:100%;">
-                            <source src="${folder}/Track_${i}/target_Guitar.wav" type="audio/mpeg">
-                            Your browser does not support the audio.
-                        </audio>        
-                        <div class="col border-right">
-                            <span class="my-auto">target_Piano stem</span>
-                        </div>
-                        <audio controls style="width:100%;">
-                            <source src="${folder}/Track_${i}/target_Piano.wav" type="audio/mpeg">
-                            Your browser does not support the audio.
-                        </audio>
-                        <div class="col my-auto border-right">
-                            <img style="margin-left:-1.5rem;" src="${folder}/Track_${i}/target.png" width="100%">
-                        </div>   
-
-
                         `;
                     audioRow.appendChild(audioCol);
 
@@ -263,7 +361,7 @@
         </div>
     </section>
 
-
+    <div style="width:100%; height:2px; background-color:#000; margin-top:100px;"></div>
     <h2 style="font-weight: bold;">Text Conditioning Generation</h2>
 
     <section id="string" class="pb-1">
@@ -275,7 +373,7 @@
 
                             <div class="row w-100 text-center my-3">   
                                 <div class="col my-auto">
-                                    <span class = "my-auto">Energetic Music</span>
+                                    <span class = "my-auto">"Energetic Music"</span>
                                 </div>
                                 <div class="col my-auto">
                                     <audio controls style="width:100%;">
@@ -312,7 +410,7 @@
 
                             <div class="row w-100 text-center my-3">   
                                 <div class="col my-auto">
-                                    <span class = "my-auto">Soft Music</span>
+                                    <span class = "my-auto">"Soft Music"</span>
                                 </div>
                                 <div class="col my-auto">
                                     <audio controls style="width:100%;">
@@ -361,7 +459,7 @@
     
 
 
-
+    <div style="width:100%; height:2px; background-color:#000; margin-top:100px;"></div>
     <h2 style="font-weight: bold;">Arrangement Generation</h2>
 
     <section id="video" class="pb-1">
@@ -422,6 +520,8 @@
                             <img style="margin-left:-1.5rem;" src="Arrangement_generation/${folder}/Track_${i}/generated.png" width="100%">
                         </div>
 
+                        <div style="width:100%; height:1px; background-color:#000; margin-top:10px;"></div>
+
                         <div class="col border-right">
                             <span class="my-auto">Target Mix</span>
                         </div>
@@ -456,7 +556,7 @@
                 <div class="col-md-12">
                     <div class="pb-1">
                         <p class="lead text-primary"> 
-                           Arrangement Generation Drums
+                           Arrangement Generation D: Drums
                         </p>
                     </div>        
                     <hr class="my-1"/>
@@ -503,6 +603,8 @@
                         <div class="col my-auto border-right">
                             <img style="margin-left:-1.5rem;" src="Arrangement_generation/${folder}/Track_${i}/generated.png" width="100%">
                         </div>
+
+                        <div style="width:100%; height:1px; background-color:#000; margin-top:10px;"></div>
 
                         <div class="col border-right">
                             <span class="my-auto">Target Mix</span>
@@ -586,6 +688,8 @@
                             <img style="margin-left:-1.5rem;" src="Arrangement_generation/${folder}/Track_${i}/generated.png" width="100%">
                         </div>
 
+                        <div style="width:100%; height:1px; background-color:#000; margin-top:10px;"></div>
+
                         <div class="col border-right">
                             <span class="my-auto">Target Mix</span>
                         </div>
@@ -667,6 +771,8 @@
                         <div class="col my-auto border-right">
                             <img style="margin-left:-1.5rem;" src="Arrangement_generation/${folder}/Track_${i}/generated.png" width="100%">
                         </div>
+
+                        <div style="width:100%; height:1px; background-color:#000; margin-top:10px;"></div>
 
                         <div class="col border-right">
                             <span class="my-auto">Target Mix</span>
@@ -751,6 +857,8 @@
                             <img style="margin-left:-1.5rem;" src="Arrangement_generation/${folder}/Track_${i}/generated.png" width="100%">
                         </div>
 
+                        <div style="width:100%; height:1px; background-color:#000; margin-top:10px;"></div>
+
                         <div class="col border-right">
                             <span class="my-auto">Target Mix</span>
                         </div>
@@ -833,6 +941,8 @@
                         <div class="col my-auto border-right">
                             <img style="margin-left:-1.5rem;" src="Arrangement_generation/${folder}/Track_${i}/generated.png" width="100%">
                         </div>
+
+                        <div style="width:100%; height:1px; background-color:#000; margin-top:10px;"></div>
 
                         <div class="col border-right">
                             <span class="my-auto">Target Mix</span>
@@ -917,6 +1027,8 @@
                             <img style="margin-left:-1.5rem;" src="Arrangement_generation/${folder}/Track_${i}/generated.png" width="100%">
                         </div>
 
+                        <div style="width:100%; height:1px; background-color:#000; margin-top:10px;"></div>
+
                         <div class="col border-right">
                             <span class="my-auto">Target Mix</span>
                         </div>
@@ -1000,6 +1112,8 @@
                             <img style="margin-left:-1.5rem;" src="Arrangement_generation/${folder}/Track_${i}/generated.png" width="100%">
                         </div>
 
+                        <div style="width:100%; height:1px; background-color:#000; margin-top:10px;"></div>
+
                         <div class="col border-right">
                             <span class="my-auto">Target Mix</span>
                         </div>
@@ -1082,6 +1196,8 @@
                         <div class="col my-auto border-right">
                             <img style="margin-left:-1.5rem;" src="Arrangement_generation/${folder}/Track_${i}/generated.png" width="100%">
                         </div>
+
+                        <div style="width:100%; height:1px; background-color:#000; margin-top:10px;"></div>
 
                         <div class="col border-right">
                             <span class="my-auto">Target Mix</span>
@@ -1168,6 +1284,8 @@
                             <img style="margin-left:-1.5rem;" src="Arrangement_generation/${folder}/Track_${i}/generated.png" width="100%">
                         </div>
 
+                        <div style="width:100%; height:1px; background-color:#000; margin-top:10px;"></div>
+
                         <div class="col border-right">
                             <span class="my-auto">Target Mix</span>
                         </div>
@@ -1252,6 +1370,8 @@
                         <div class="col my-auto border-right">
                             <img style="margin-left:-1.5rem;" src="Arrangement_generation/${folder}/Track_${i}/generated.png" width="100%">
                         </div>
+
+                        <div style="width:100%; height:1px; background-color:#000; margin-top:10px;"></div>
 
                         <div class="col border-right">
                             <span class="my-auto">Target Mix</span>
@@ -1339,6 +1459,8 @@
                             <img style="margin-left:-1.5rem;" src="Arrangement_generation/${folder}/Track_${i}/generated.png" width="100%">
                         </div>
 
+                        <div style="width:100%; height:1px; background-color:#000; margin-top:10px;"></div>
+
                         <div class="col border-right">
                             <span class="my-auto">Target Mix</span>
                         </div>
@@ -1423,6 +1545,8 @@
                             <img style="margin-left:-1.5rem;" src="Arrangement_generation/${folder}/Track_${i}/generated.png" width="100%">
                         </div>
 
+                        <div style="width:100%; height:1px; background-color:#000; margin-top:10px;"></div>
+
                         <div class="col border-right">
                             <span class="my-auto">Target Mix</span>
                         </div>
@@ -1506,6 +1630,8 @@
                             <img style="margin-left:-1.5rem;" src="Arrangement_generation/${folder}/Track_${i}/generated.png" width="100%">
                         </div>
 
+                        <div style="width:100%; height:1px; background-color:#000; margin-top:10px;"></div>
+
                         <div class="col border-right">
                             <span class="my-auto">Target Mix</span>
                         </div>
@@ -1529,6 +1655,394 @@
             </script>
         </div>
     </section>
+
+
+
+
+    <div style="width:100%; height:2px; background-color:#000; margin-top:100px;"></div>
+    <h2 style="font-weight: bold;">P.S. Source Seperation</h2>
+
+    <div class="horizontal-layout">
+        <section id="video1" class="pb-1">
+            <div class="container" style="min-width:80%;">
+                <!-- JavaScript to Set the Folder Variable -->
+                <script>
+                    var folder = 'Seperation/Dirac'; // Change this variable to match your folder, e.g., 'C', 'D', etc.
+                </script>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="pb-1">
+                            <p class="lead text-primary"> 
+                            Seperations with Dirac algorithm
+                            </p>
+                        </div>        
+                        <hr class="my-1"/>
+                    </div>
+                </div>
+                        
+                <div class="row my-3">
+                    <div class="col-md-12">
+                        <div class="card border-primary h-100">
+                            <div class="card-body d-flex flex-column align-items-start" id="tracksContainer">
+                                <!-- Placeholder for dynamically created audio and images -->
+                                <div class="row w-100 text-center my-3" id="source_seperation_dirac"> 
+                                    <!-- Audio elements will be inserted here -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <script>
+
+                    var audioRow = document.getElementById('source_seperation_dirac');
+            
+                    for (let i = 1; i <= 2; i++) { // Loop from track 1 to 5
+                        var audioCol = document.createElement('div');
+                        audioCol.className = 'col my-auto';
+                        audioCol.innerHTML = `
+                            <div class="col border-right">
+                                <span class="my-auto">Track ${i}</span>
+                            </div>
+
+
+                            <div class="col border-right">
+                                <span class="my-auto">Original Mix</span>
+                            </div>
+                            <audio controls style="width:100%;">
+                                <source src="${folder}/Track_${i}/mixture.wav" type="audio/mpeg">
+                                Your browser does not support the audio.
+                            </audio>
+
+                            <div style="width:100%; height:1px; background-color:#000; margin-top:10px; margin-bottom:10px;"></div>
+
+                            <div class="col border-right">
+                                <span class="my-auto">Original Bass stem</span>
+                            </div>
+                            <audio controls style="width:100%;">
+                                <source src="${folder}/Track_${i}/original/Bass.wav" type="audio/mpeg">
+                                Your browser does not support the audio.
+                            </audio>
+
+                            <div class="col border-right">
+                                <span class="my-auto">Original Drums stem</span>
+                            </div>
+                            <audio controls style="width:100%;">
+                                <source src="${folder}/Track_${i}/original/Drums.wav" type="audio/mpeg">
+                                Your browser does not support the audio.
+                            </audio>
+                            <div class="col border-right">
+                                <span class="my-auto">Original Guitar stem</span>
+                            </div>
+                            <audio controls style="width:100%;">
+                                <source src="${folder}/Track_${i}/original/Guitar.wav" type="audio/mpeg">
+                                Your browser does not support the audio.
+                            </audio>        
+                            <div class="col border-right">
+                                <span class="my-auto">Original Piano stem</span>
+                            </div>
+                            <audio controls style="width:100%;">
+                                <source src="${folder}/Track_${i}/original/Piano.wav" type="audio/mpeg">
+                                Your browser does not support the audio.
+                            </audio>
+
+
+
+                            <div style="width:100%; height:1px; background-color:#000; margin-top:10px;"></div>
+
+
+                            <div class="col border-right">
+                                <span class="my-auto">Seperated Bass stem</span>
+                            </div>
+                            <audio controls style="width:100%;">
+                                <source src="${folder}/Track_${i}/seperated/Bass.wav" type="audio/mpeg">
+                                Your browser does not support the audio.
+                            </audio>
+                            <div class="col border-right">
+                                <span class="my-auto">Seperated Drums stem</span>
+                            </div>
+                            <audio controls style="width:100%;">
+                                <source src="${folder}/Track_${i}/seperated/Drums.wav" type="audio/mpeg">
+                                Your browser does not support the audio.
+                            </audio>
+                            <div class="col border-right">
+                                <span class="my-auto">Seperated Guitar stem</span>
+                            </div>
+                            <audio controls style="width:100%;">
+                                <source src="${folder}/Track_${i}/seperated/Guitar.wav" type="audio/mpeg">
+                                Your browser does not support the audio.
+                            </audio>        
+                            <div class="col border-right">
+                                <span class="my-auto">Seperated Piano stem</span>
+                            </div>
+                            <audio controls style="width:100%;">
+                                <source src="${folder}/Track_${i}/seperated/Piano.wav" type="audio/mpeg">
+                                Your browser does not support the audio.
+                            </audio>                   
+
+                            `;
+                        audioRow.appendChild(audioCol);
+
+                    }
+                </script>
+            </div>
+        </section>
+
+
+
+        <section id="video2" class="pb-1">
+            <div class="container" style="min-width:80%;">
+                <!-- JavaScript to Set the Folder Variable -->
+                <script>
+                    var folder = 'Seperation/Gaussian'; // Change this variable to match your folder, e.g., 'C', 'D', etc.
+                </script>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="pb-1">
+                            <p class="lead text-primary"> 
+                            Seperations with Gaussian algorithm
+                            </p>
+                        </div>        
+                        <hr class="my-1"/>
+                    </div>
+                </div>
+                        
+                <div class="row my-3">
+                    <div class="col-md-12">
+                        <div class="card border-primary h-100">
+                            <div class="card-body d-flex flex-column align-items-start" id="tracksContainer">
+                                <!-- Placeholder for dynamically created audio and images -->
+                                <div class="row w-100 text-center my-3" id="source_seperation_Gaussian"> 
+                                    <!-- Audio elements will be inserted here -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <script>
+
+                    var audioRow = document.getElementById('source_seperation_Gaussian');
+            
+                    for (let i = 1; i <= 2; i++) { // Loop from track 1 to 5
+                        var audioCol = document.createElement('div');
+                        audioCol.className = 'col my-auto';
+                        audioCol.innerHTML = `
+                            <div class="col border-right">
+                                <span class="my-auto">Track ${i}</span>
+                            </div>
+
+
+                            <div class="col border-right">
+                                <span class="my-auto">Original Mix</span>
+                            </div>
+                            <audio controls style="width:100%;">
+                                <source src="${folder}/Track_${i}/mixture.wav" type="audio/mpeg">
+                                Your browser does not support the audio.
+                            </audio>
+
+                            <div style="width:100%; height:1px; background-color:#000; margin-top:10px; margin-bottom:10px;"></div>
+
+                            <div class="col border-right">
+                                <span class="my-auto">Original Bass stem</span>
+                            </div>
+                            <audio controls style="width:100%;">
+                                <source src="${folder}/Track_${i}/original/Bass.wav" type="audio/mpeg">
+                                Your browser does not support the audio.
+                            </audio>
+
+                            <div class="col border-right">
+                                <span class="my-auto">Original Drums stem</span>
+                            </div>
+                            <audio controls style="width:100%;">
+                                <source src="${folder}/Track_${i}/original/Drums.wav" type="audio/mpeg">
+                                Your browser does not support the audio.
+                            </audio>
+                            <div class="col border-right">
+                                <span class="my-auto">Original Guitar stem</span>
+                            </div>
+                            <audio controls style="width:100%;">
+                                <source src="${folder}/Track_${i}/original/Guitar.wav" type="audio/mpeg">
+                                Your browser does not support the audio.
+                            </audio>        
+                            <div class="col border-right">
+                                <span class="my-auto">Original Piano stem</span>
+                            </div>
+                            <audio controls style="width:100%;">
+                                <source src="${folder}/Track_${i}/original/Piano.wav" type="audio/mpeg">
+                                Your browser does not support the audio.
+                            </audio>
+
+
+
+                            <div style="width:100%; height:1px; background-color:#000; margin-top:10px;"></div>
+
+
+                            <div class="col border-right">
+                                <span class="my-auto">Seperated Bass stem</span>
+                            </div>
+                            <audio controls style="width:100%;">
+                                <source src="${folder}/Track_${i}/seperated/Bass.wav" type="audio/mpeg">
+                                Your browser does not support the audio.
+                            </audio>
+                            <div class="col border-right">
+                                <span class="my-auto">Seperated Drums stem</span>
+                            </div>
+                            <audio controls style="width:100%;">
+                                <source src="${folder}/Track_${i}/seperated/Drums.wav" type="audio/mpeg">
+                                Your browser does not support the audio.
+                            </audio>
+                            <div class="col border-right">
+                                <span class="my-auto">Seperated Guitar stem</span>
+                            </div>
+                            <audio controls style="width:100%;">
+                                <source src="${folder}/Track_${i}/seperated/Guitar.wav" type="audio/mpeg">
+                                Your browser does not support the audio.
+                            </audio>        
+                            <div class="col border-right">
+                                <span class="my-auto">Seperated Piano stem</span>
+                            </div>
+                            <audio controls style="width:100%;">
+                                <source src="${folder}/Track_${i}/seperated/Piano.wav" type="audio/mpeg">
+                                Your browser does not support the audio.
+                            </audio>                   
+
+                            `;
+                        audioRow.appendChild(audioCol);
+
+                    }
+                </script>
+            </div>
+        </section>
+        
+    </div>
+
+    <div class="container" style="min-width:80%;">
+
+        <div id="latex-content">
+            <p>
+                
+                <strong>Source Separation</strong>
+            <p>
+            <p>
+                Audio source separation refers to the process of isolating individual sound elements from a mixture of sounds. 
+                This method is critical in numerous areas, particularly in music production, where it facilitates the isolation of 
+                single instruments from a complete mix. The primary challenge involves accurately identifying and extracting the 
+                intended source without introducing noise or degrading the audio quality. 
+                
+                MSDM<sup><a href="#ref1" id="cite-ref1">[1]</a></sup> introduced a diffusion-based multi source generative model 
+                that is capable of both music synthesis and source separation within a singular framework, operating directly on raw waveform. 
+                This model employs a diffusion-based generative approach, trained via denoising score-matching<sup><a href="#ref2" id="cite-ref2">[2]</a></sup>, 
+                to learn the priors of stems that share contextual relationships. The fundamental principle of score matching 
+                is to approximate the "score" function of the target distribution \(p(x)\)—specifically, \(\nabla_x \log p(x)\)—rather 
+                than the distribution itself. The denoising process in such models follows a probability flow ordinary differential equation 
+                (ODE)<sup><a href="#ref3" id="cite-ref3">[3]</a></sup>:
+                
+                \begin{equation}
+                \mathrm{d}x(n) = \sigma(n) \nabla_{x(n)} \log p(x(n) | \sigma(n)) \, \mathrm{d}n,
+                \label{denoising_score}
+                \end{equation}
+                where, \(n\) represents the diffusion step, and the parameter \(\sigma(n)\) controls the intensity of noise at each step.
+                
+                The MSDM framework defines source separation as a particular case of conditional generation, wherein the model is required 
+                to estimate the score of the posterior distribution with given mixture \(\nabla_{x(n)} \log p(x(n)|x_{\textit{mixture}})\). 
+                The authors posit that in diffusion-based generative approaches to source separation, learning an explicit likelihood 
+                model is redundant; this is because the relationship between the clean source \(x\) and the mixture \(x_{\textit{mixture}}\) 
+                can be effectively characterized by a straightforward summation function. MSDM details two methods for approximating the posterior 
+                score function: "MSDM Dirac" and "MSDM Gaussian", the detailed discussion of which is omitted here for brevity.
+                
+                In our study, we have adopted both method utilized by MSDM for source separation, following the authors at <sup><a href="#ref4" id="cite-ref4">[4]</a></sup>, 
+                by replacing the score matching model with the DDIM denoising model. This replacement is predicated on the equivalence delineated 
+                in Song et al.<sup><a href="#ref5" id="cite-ref5">[5]</a></sup>~\cite{song2022denoising}, which indicates that their deterministic DDIM sampler can be expressed as the Euler 
+                integration of the ODE:
+                
+                \begin{equation}
+                \mathrm{d}x(n) = \epsilon_\theta \left( \frac{x(n)}{\sqrt{\sigma(n)^2+1}} \right) \mathrm{d}\sigma(n),
+                \label{denoising_score_to_DDIM}
+                \end{equation}
+                where \(\epsilon_\theta\) represents the DDPM  model trained to predict the normalized noise vector. 
+                Moreover, we adapted both denoising algorithms presented in MSDM to our DDIM paradigm by translating it into the \(z\) latent space, 
+                incorporating necessary modifications and 3D integration.
+
+
+                <table>
+                    <caption>Table 1: SI-SDRi for Source Separation on Slakh2100</caption>
+                    <thead>
+                        <tr>
+                            <th>Algorithm</th>
+                            <th>Bass</th>
+                            <th>Drums</th>
+                            <th>Guitar</th>
+                            <th>Piano</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>MT-MusicLDM (Dirac)</td>
+                            <td>3.26</td>
+                            <td>3.63</td>
+                            <td>2.79</td>
+                            <td>2.58</td>
+                        </tr>
+                        <tr>
+                            <td>MT-MusicLDM (Gaussian)</td>
+                            <td>3.23</td>
+                            <td>3.07</td>
+                            <td>1.97</td>
+                            <td>2.53</td>
+                        </tr>
+                        <tr>
+                            <td>MSDM (Dirac)</td>
+                            <td>17.12</td>
+                            <td>18.68</td>
+                            <td>15.38</td>
+                            <td>14.73</td>
+                        </tr>
+                        <tr>
+                            <td>MSDM (Gaussian)</td>
+                            <td>13.93</td>
+                            <td>17.92</td>
+                            <td>14.19</td>
+                            <td>12.11</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+
+                Following the achievements of MSDM, we tested our model on the source separation task utilizing the Slakh test dataset. 
+                Notwithstanding the fact that our model demonstrates some non-zero separation capabilities, as depicted in 
+                <a href="#tab:sound_separation">Table 1</a>, it is evident that it significantly underperforms in comparison to the benchmarks set by MSDM. 
+                Conditioned on the mixed signal processing algorithms from MSDM, namely "Dirac" and "Gaussian," our model was capable 
+                of generating stems that bear a close resemblance to the original tracks in terms of auditory perception. 
+                However, there is a noticeable issue of bleeding among the tracks and occasion generation of audio content that 
+                deviates from the original compositions. This phenomenon is particularly pronounced in the case of guitar and piano tracks, 
+                as indicated by their lower scores in the referenced table. We explain the limitation of our model in source separation 
+                by its operation within a latent space, rather than directly on waveform. In this space, the relationship between 
+                mixture and separated tracks does not follow a linear pattern, that is pivotal for the algorithms "Dirac" and "Gaussian" algorithms. 
+                We are actively seeking for the solution for the separation methods that can accommodate the nonlinear case and expect 
+                to show its resolution in the future publications.
+            </p>
+        </div>
+        <div id="references">
+            <h3>References</h3>
+            <ol>
+                <li id="ref1">Giorgio Mariani and Irene Tallini and Emilian Postolache and Michele Mancusi and Luca Cosmo and Emanuele Rodolà: Multi-Source Diffusion Models for Simultaneous Music Generation and Separation, arXiv:2302.02257, 2024. <a href="#cite-ref1">↩</a></li>
+                <li id="ref2">Song, Yang and Ermon, Stefano: Generative Modeling by Estimating Gradients of the Data Distribution, NIPS, 2019. <a href="#cite-ref2">↩</a></li>
+                <li id="ref3">Yang Song, Jascha Sohl{-}Dickstein, Diederik P. Kingma, Abhishek Kumar, Stefano Ermon, Ben Poole: Score-Based Generative Modeling through Stochastic Differential Equations, ICLR, 2021. <a href="#cite-ref3">↩</a></li>
+                <li id="ref4">Tero Karras and Miika Aittala and Timo Aila and Samuli Laine: Elucidating the Design Space of Diffusion-Based Generative Models, arXiv:2206.00364, 2022. <a href="#cite-ref4">↩</a></li>
+                <li id="ref5">Jiaming Song, Chenlin Meng, Stefano Ermon: Denoising Diffusion Implicit Models, ICLR, 2021. <a href="#cite-ref5">↩</a></li>
+                <!-- More references as needed -->
+            </ol>
+        </div>
+
+
+    </div>
+
+
+    
+    
+    
+    
+
+
 
 
 
