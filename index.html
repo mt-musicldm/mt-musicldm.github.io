@@ -1927,7 +1927,8 @@
                 This method is critical in numerous areas, particularly in music production, where it facilitates the isolation of 
                 single instruments from a complete mix. The primary challenge involves accurately identifying and extracting the 
                 intended source without introducing noise or degrading the audio quality. 
-                
+            <p>
+            <p>                
                 MSDM<sup><a href="#ref1" id="cite-ref1">[1]</a></sup> introduced a diffusion-based multi source generative model 
                 that is capable of both music synthesis and source separation within a singular framework, operating directly on raw waveform. 
                 This model employs a diffusion-based generative approach, trained via denoising score-matching<sup><a href="#ref2" id="cite-ref2">[2]</a></sup>, 
@@ -1941,7 +1942,8 @@
                 \label{denoising_score}
                 \end{equation}
                 where, \(n\) represents the diffusion step, and the parameter \(\sigma(n)\) controls the intensity of noise at each step.
-                
+                <p>
+                <p>                  
                 The MSDM framework defines source separation as a particular case of conditional generation, wherein the model is required 
                 to estimate the score of the posterior distribution with given mixture \(\nabla_{x(n)} \log p(x(n)|x_{\textit{mixture}})\). 
                 The authors posit that in diffusion-based generative approaches to source separation, learning an explicit likelihood 
@@ -1951,7 +1953,7 @@
                 
                 In our study, we have adopted both method utilized by MSDM for source separation, following the authors at <sup><a href="#ref4" id="cite-ref4">[4]</a></sup>, 
                 by replacing the score matching model with the DDIM denoising model. This replacement is predicated on the equivalence delineated 
-                in Song et al.<sup><a href="#ref5" id="cite-ref5">[5]</a></sup>~\cite{song2022denoising}, which indicates that their deterministic DDIM sampler can be expressed as the Euler 
+                in Song et al.<sup><a href="#ref5" id="cite-ref5">[5]</a></sup>, which indicates that their deterministic DDIM sampler can be expressed as the Euler 
                 integration of the ODE:
                 
                 \begin{equation}
